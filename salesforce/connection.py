@@ -7,7 +7,7 @@ from Crypto.Hash import SHA256
 import requests
 
 
-class Salesforce:
+class SalesforceConnection:
     def __init__(self, consumer_id, username, signing_key_filename):
         jwt_header = {"alg": "RS256"}
         encoded_jwt_header = urlsafe_b64encode(bytes(str(jwt_header),
