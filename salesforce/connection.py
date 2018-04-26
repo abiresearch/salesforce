@@ -9,7 +9,7 @@ from six import text_type
 import requests
 
 
-class SalesforceConnection:
+class JwtConnection:
     def __init__(self, consumer_id, username, signing_key_filename):
         jwt_header = {"alg": "RS256"}
         encoded_jwt_header = urlsafe_b64encode(text_type(jwt_header).encode('UTF-8'))
