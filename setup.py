@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='salesforce',
     version='0.1',
-    packages=[''],
+    packages=['salesforce'],
     url='https://www.abiresearch.com',
     license='',
     author='Peter Baehr',
