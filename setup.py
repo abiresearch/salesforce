@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='salesforce',
-    version='0.2',
+    version='0.1',
     packages=['salesforce'],
     url='https://www.abiresearch.com',
     license='',

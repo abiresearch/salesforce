@@ -9,38 +9,8 @@ from six import text_type
 import requests
 
 
-class BaseConnection:
-    def __init__(self, base_url):
-        self.base_url = base_url
-
-    def get(self, url):
-        raise NotImplementedError
-
-    def post(self, url, payload):
-        raise NotImplementedError
-
-    def patch(self, url, payload):
-        raise NotImplementedError
-
-    def delete(self, url):
-        raise NotImplementedError
-
-    def head(self, url):
-        raise NotImplementedError
-
-    def search(self, query, sobject=None, fields=None):
-        url = self.base_url + 'parameterizedSearch?q=%s' % query
-        if sobject:
-            url += '&object=%s' % sobject
-        if fields:
-            url += '&%s.fields=%s' % (sobject, ','.join(fields))
-
-        return self.get(url).json()['searchRecords']
-
-
-class JwtConnection(BaseConnection):
-    def __init__(self, base_url, consumer_id, username, signing_key_filename):
-        super(JwtConnection, self).__init__(base_url)
+class JwtConnection:
+    def __init__(self, consumer_id, username, signing_key_filename):
         jwt_header = {"alg": "RS256"}
         encoded_jwt_header = urlsafe_b64encode(text_type(jwt_header).encode('UTF-8'))
 
