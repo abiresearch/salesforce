@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='salesforce',
-    version='0.1',
+    version='0.2',
     packages=['salesforce'],
     url='https://www.abiresearch.com',
     license='',
@@ -11,6 +11,7 @@ setup(
     description='Wrapper and authentication for the Salesforce API',
     install_requires=[
         'requests==2.18.4',
-        'pycrypto==2.6.1'
+        'pycrypto==2.6.1',
+        'six==1.10.0'
     ]
 )
