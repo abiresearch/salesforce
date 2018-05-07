@@ -33,7 +33,7 @@ class BaseConnection:
         if sobject:
             url += '&object=%s' % sobject
         if fields:
-            url += '%s.fields=%s' % (sobject, ','.join(fields))
+            url += '&%s.fields=%s' % (sobject, ','.join(fields))
 
         return self.get(url).json()['searchRecords']
 
