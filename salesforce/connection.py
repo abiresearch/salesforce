@@ -10,7 +10,9 @@ import requests
 
 
 class JwtConnection:
-    def __init__(self, consumer_id, username, signing_key_filename):
+    def __init__(self, consumer_id, username, signing_key_filename,
+                 run_assignment_rules=True):
+        self.run_assignment_rules = run_assignment_rules
         jwt_header = {"alg": "RS256"}
         encoded_jwt_header = urlsafe_b64encode(
                 text_type(jwt_header).encode('UTF-8'))
@@ -43,7 +45,9 @@ class JwtConnection:
 
     def _get_headers(self):
         return {'Authorization': 'Bearer %s' % self.access_token,
-                'Content-Type': 'application/json'}
+                'Content-Type': 'application/json',
+                'Sforce-Auto-Assign':
+                'TRUE' if self.run_assignment_rules else 'FALSE'}
 
     def get(self, url):
         return requests.get(url, headers=self._get_headers())
