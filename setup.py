@@ -10,7 +10,7 @@ setup(
     author_email='baehr@abiresearch.com',
     description='Wrapper and authentication for the Salesforce API',
     install_requires=[
-        'requests==2.18.4',
+        'requests==2.*',
         'pycrypto==2.6.1',
         'six==1.10.0'
     ]
